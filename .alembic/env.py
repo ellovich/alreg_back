@@ -11,9 +11,9 @@ from sqlalchemy import engine_from_config, pool
 
 from src.config import settings
 from src.database import BaseAlchemyModel
-from src.user.model import User
-from src.doctor.model import Doctor, doctors_patients
+from src.doctor.model import Doctor, doctor_patient
 from src.patient.model import Patient
+from src.user.model import User
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

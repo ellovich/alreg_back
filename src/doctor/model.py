@@ -5,7 +5,7 @@ from src.database import BaseAlchemyModel
 
 
 class Doctor(BaseAlchemyModel):
-    __tablename__ = "doctors"
+    __tablename__ = "doctor"
 
     first_name = Column(String, nullable=False)
     middle_name = Column(String, nullable=True)
@@ -27,11 +27,11 @@ class Doctor(BaseAlchemyModel):
     def __str__(self) -> str:
         return f"Doctor #{self.id}: ({self.fullName})"
 
-    user = relationship("User", back_populates="doctors")
-    patient = relationship("Patient", secondary="doctors_patients")
+    user = relationship("User", back_populates="doctor")
+    patient = relationship("Patient", secondary="doctor_patient")
 
 
-doctors_patients = Table("doctors_patients", BaseAlchemyModel.metadata,
-    Column("doctor_id", ForeignKey("doctors.id"), primary_key=True),
-    Column("patient_id", ForeignKey("patients.id"), primary_key=True),
+doctor_patient = Table("doctor_patient", BaseAlchemyModel.metadata,
+    Column("doctor_id", ForeignKey("doctor.id"), primary_key=True),
+    Column("patient_id", ForeignKey("patient.id"), primary_key=True),
 )

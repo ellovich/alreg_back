@@ -1,11 +1,11 @@
-from sqlalchemy import JSON, Column, ForeignKey, Integer, String, Table, Date
+from sqlalchemy import JSON, Column, Date, Integer, String
 from sqlalchemy.orm import relationship
 
 from src.database import BaseAlchemyModel
 
 
 class Patient(BaseAlchemyModel):
-    __tablename__ = "patients"
+    __tablename__ = "patient"
 
     gender = Column(String, nullable=False)
     birth = Column(Date, nullable=False)
@@ -23,7 +23,7 @@ class Patient(BaseAlchemyModel):
     def __str__(self) -> str:
         return f"Patient #{self.id}"
 
-    doctor = relationship("Doctor", secondary="doctors_patients")
+    doctor = relationship("Doctor", secondary="doctor_patient")
 
     # medication: number,
     # adverseEvents: number,
