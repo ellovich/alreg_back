@@ -21,7 +21,7 @@ class BaseDAO:
             query = select(cls.model.__table__.columns).filter_by(**filter_by)
             result = await session.execute(query)
             return result.mappings().all()
-    
+
     @classmethod
     async def add(cls, **data):
         try:
@@ -46,7 +46,6 @@ class BaseDAO:
             await session.execute(query)
             await session.commit()
 
-    
     @classmethod
     async def add_bulk(cls, *data):
         # Для загрузки массива данных [{"id": 1}, {"id": 2}]

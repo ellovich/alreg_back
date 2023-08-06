@@ -1,0 +1,20 @@
+[
+    {
+        "name" : "admin",
+        "permissions" : "[{\"can_delete\": true}]",
+        "created_on" : "2023-08-06T11:35:38.000Z",
+        "updated_on" : "2023-08-06T11:35:38.000Z"
+    },
+    {
+        "name" : "user",
+        "permissions" : "[{\"can_edit\": true}]",
+        "created_on" : "2023-08-06T11:40:17.000Z",
+        "updated_on" : "2023-08-06T11:40:17.000Z"
+    },
+    {
+        "name" : "visitor",
+        "permissions" : "[{\"can_view\": true}]",
+        "created_on" : "2023-08-06T11:40:17.000Z",
+        "updated_on" : "2023-08-06T11:40:17.000Z"
+    }
+]

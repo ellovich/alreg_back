@@ -1,8 +1,8 @@
-"""Nullable doctor id
+"""ShortName
 
-Revision ID: 777a1bfdb04e
-Revises: 5f8ebdd22ecf
-Create Date: 2023-08-06 12:16:37.310922
+Revision ID: ba9e82cec019
+Revises: 98e4ff3dbb91
+Create Date: 2023-08-06 15:20:35.967478
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = "777a1bfdb04e"
-down_revision: Union[str, None] = "5f8ebdd22ecf"
+revision: str = "ba9e82cec019"
+down_revision: Union[str, None] = "98e4ff3dbb91"
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 

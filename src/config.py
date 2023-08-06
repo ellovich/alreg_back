@@ -4,11 +4,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class AppSettings(BaseSettings):
+    model_config = SettingsConfigDict(env_file=".env")
 
-    model_config = SettingsConfigDict(
-        env_file=".env"
-    )
-    
     MODE: Literal["DEV", "TEST", "PROD"]
     LOG_LEVEL: Literal["DEBUG", "INFO", "WARNING", "ERROR", "FATAL"]
 
@@ -22,7 +19,6 @@ class AppSettings(BaseSettings):
     @property
     def DATABASE_URL(self):
         return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
-    
 
     # postgres test db
     TEST_DB_USER: str
@@ -55,7 +51,7 @@ class AppSettings(BaseSettings):
     @property
     def REDIS_URL(self):
         return f"redis://{self.REDIS_HOST}:{self.REDIS_PORT}"
-    
+
     SENTRY_DSN: str
 
 

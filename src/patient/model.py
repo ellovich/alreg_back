@@ -2,6 +2,7 @@ from sqlalchemy import JSON, Column, Date, Integer, String
 from sqlalchemy.orm import relationship
 
 from src.database import BaseAlchemyModel
+from src.doctor.model import doctor_patient
 
 
 class Patient(BaseAlchemyModel):
@@ -16,14 +17,22 @@ class Patient(BaseAlchemyModel):
     visits = Column(JSON, nullable=True)
     body_info = Column(JSON, nullable=True)
 
-    laboratoryTests = Column(JSON, nullable=True) # clinicalBloodTest, lipidogram, bloodChemistryTests, 
-    instrumentalStudies = Column(JSON, nullable=True) # echocardiography, multisliceComputedTomography, carotidArteryDuplexScan
-    surgicalTreatment = Column(JSON, nullable=True) # typeOfStentGraft: str, sizing: number, numberOfFenestrations: number, numberOfPeripheralStentGrafts: number
+    laboratoryTests = Column(
+        JSON, nullable=True
+    )  # clinicalBloodTest, lipidogram, bloodChemistryTests,
+    instrumentalStudies = Column(
+        JSON, nullable=True
+    )  # echocardiography, multisliceComputedTomography, carotidArteryDuplexScan
+    surgicalTreatment = Column(
+        JSON, nullable=True
+    )  # typeOfStentGraft: str, sizing: number, numberOfFenestrations: number, numberOfPeripheralStentGrafts: number
 
     def __str__(self) -> str:
-        return f"Patient #{self.id}"
+        return f"P#{self.id}"
 
-    doctor = relationship("Doctor", secondary="doctor_patient")
+    doctors = relationship(
+        "Doctor", secondary=doctor_patient, back_populates="patients"
+    )
 
     # medication: number,
     # adverseEvents: number,

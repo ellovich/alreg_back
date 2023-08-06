@@ -3,6 +3,13 @@ from sqlalchemy.orm import relationship
 
 from src.database import BaseAlchemyModel
 
+doctor_patient = Table(
+    "doctor_patient",
+    BaseAlchemyModel.metadata,
+    Column("doctor_id", ForeignKey("doctor.id"), primary_key=True),
+    Column("patient_id", ForeignKey("patient.id"), primary_key=True),
+)
+
 
 class Doctor(BaseAlchemyModel):
     __tablename__ = "doctor"
@@ -12,11 +19,16 @@ class Doctor(BaseAlchemyModel):
     last_name = Column(String, nullable=False)
 
     @property
-    def fullName(self):
-        return f"{self.last_name} {self.middle_name if self.middle_name else ''} {self.first_name}"
+    def full_name(self):
+        return f"{self.last_name}  {self.first_name} {self.middle_name if self.middle_name else ''}"
+
+    @property
+    def short_name(self):
+        return f"{self.last_name}  {self.first_name[:1]}. {(self.middle_name[:1]) + '.' if self.middle_name else ''}"
 
     gender = Column(String, nullable=False)
     birth = Column(Date, nullable=False)
+    image_path = Column(String, nullable=True)
 
     medical_institution = Column(String, nullable=True)
     jobTitle = Column(String, nullable=True)
@@ -25,13 +37,9 @@ class Doctor(BaseAlchemyModel):
     career = Column(JSON, nullable=True)
 
     def __str__(self) -> str:
-        return f"Doctor #{self.id}: ({self.fullName})"
+        return f"D#{self.id}:{self.short_name}"
 
     user = relationship("User", back_populates="doctor")
-    patient = relationship("Patient", secondary="doctor_patient")
-
-
-doctor_patient = Table("doctor_patient", BaseAlchemyModel.metadata,
-    Column("doctor_id", ForeignKey("doctor.id"), primary_key=True),
-    Column("patient_id", ForeignKey("patient.id"), primary_key=True),
-)
+    patients = relationship(
+        "Patient", secondary=doctor_patient, back_populates="doctors"
+    )

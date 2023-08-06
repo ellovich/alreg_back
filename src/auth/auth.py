@@ -1,37 +1,25 @@
-from fastapi import Depends, FastAPI
+from fastapi_users import FastAPIUsers
+from fastapi_users.authentication import (AuthenticationBackend,
+                                          CookieTransport, JWTStrategy)
 
-from src.auth.user_manager import (auth_backend, current_active_user,
-                                   fastapi_users)
+from src.auth.user_manager import get_user_manager
+from src.config import settings
 from src.user.model import User
-from src.user.schemas import SUserCreate, SUserRead, SUserUpdate
+
+cookie_transport = CookieTransport(cookie_max_age=36000)
 
 
-def add_auth_routes(app: FastAPI):
+def get_jwt_strategy() -> JWTStrategy:
+    return JWTStrategy(secret=settings.SECRET_KEY, lifetime_seconds=36000)
 
-    app.include_router(
-        fastapi_users.get_auth_router(auth_backend), prefix="/auth/jwt", tags=["auth"]
-    )
-    app.include_router(
-        fastapi_users.get_register_router(SUserRead, SUserCreate),
-        prefix="/auth",
-        tags=["auth"],
-    )
-    app.include_router(
-        fastapi_users.get_reset_password_router(),
-        prefix="/auth",
-        tags=["auth"],
-    )
-    app.include_router(
-        fastapi_users.get_verify_router(SUserRead),
-        prefix="/auth",
-        tags=["auth"],
-    )
-    app.include_router(
-        fastapi_users.get_users_router(SUserRead, SUserUpdate),
-        prefix="/users",
-        tags=["users"],
-    )
 
-    @app.get("/authenticated-route")
-    async def authenticated_route(user: User = Depends(current_active_user)):
-        return {"message": f"Hello {user.email}!"}
+auth_backend = AuthenticationBackend(
+    name="jwt",
+    transport=cookie_transport,
+    get_strategy=get_jwt_strategy,
+)
+
+fastapi_users = FastAPIUsers[User, int](get_user_manager, [auth_backend])
+
+current_active_user = fastapi_users.current_user(active=True)
+current_admin_user = fastapi_users.current_user(superuser=True)

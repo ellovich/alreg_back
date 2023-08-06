@@ -34,5 +34,4 @@ class SUserRead(schemas.BaseUser[int]):
 
 
 class SUserUpdate(schemas.BaseUserUpdate):
-
     model_config = ConfigDict(from_attributes=True)  # type: ignore

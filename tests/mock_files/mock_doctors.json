@@ -1,0 +1,33 @@
+[
+    {
+        "first_name" : "Иван",
+        "middle_name" : "Иванович",
+        "last_name" : "Иванов",
+        "gender" : "М",
+        "birth" : "1980-01-01",
+        "medical_institution" : null,
+        "jobTitle" : null,
+        "contacts" : "{}",
+        "education" : "{}",
+        "career" : "{}",
+        "created_on" : "2023-08-06T13:30:12.000Z",
+        "updated_on" : "2023-08-06T13:30:12.000Z",
+        "image_path" : null
+    },
+    {
+        "first_name" : "Петр",
+        "middle_name" : "Петрович",
+        "last_name" : "Петров",
+        "gender" : "М",
+        "birth" : "1990-01-01",
+        "medical_institution" : null,
+        "jobTitle" : null,
+        "contacts" : "{}",
+        "education" : "{}",
+        "career" : "{}",
+        "created_on" : "2023-08-06T13:30:12.000Z",
+        "updated_on" : "2023-08-06T13:30:12.000Z",
+        "image_path" : null
+    }
+]
+    

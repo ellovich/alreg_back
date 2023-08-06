@@ -1,0 +1,45 @@
+[
+    {
+        "gender" : "М",
+        "birth" : "2000-01-01",
+        "status" : null,
+        "discussion" : null,
+        "comment" : null,
+        "visits" : "{}",
+        "body_info" : "{}",
+        "laboratoryTests" : "{}",
+        "instrumentalStudies" : "{}",
+        "surgicalTreatment" : "{}",
+        "created_on" : "2023-08-06T13:30:12.000Z",
+        "updated_on" : "2023-08-06T13:30:12.000Z"
+    },
+    {
+        "gender" : "М",
+        "birth" : "2001-01-01",
+        "status" : null,
+        "discussion" : null,
+        "comment" : null,
+        "visits" : "{}",
+        "body_info" : "{}",
+        "laboratoryTests" : "{}",
+        "instrumentalStudies" : "{}",
+        "surgicalTreatment" : "{}",
+        "created_on" : "2023-08-06T13:30:12.000Z",
+        "updated_on" : "2023-08-06T13:30:12.000Z"
+    },
+    {
+        "gender" : "М",
+        "birth" : "2003-01-01",
+        "status" : null,
+        "discussion" : null,
+        "comment" : null,
+        "visits" : "{}",
+        "body_info" : "{}",
+        "laboratoryTests" : "{}",
+        "instrumentalStudies" : "{}",
+        "surgicalTreatment" : "{}",
+        "created_on" : "2023-08-06T13:30:12.000Z",
+        "updated_on" : "2023-08-06T13:30:12.000Z"
+    }
+]
+    

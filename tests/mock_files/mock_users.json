@@ -1,0 +1,46 @@
+[
+    {
+        "email" : "admin@example.com",
+        "hashed_password" : "$2b$12$SR.8k.tmmPLUUs1IBM0FEeur\/k1ZuR33LzITbWZK4KTKvf924EPIW",
+        "is_active" : true,
+        "is_superuser" : true,
+        "is_verified" : true,
+        "doctor_id" : null,
+        "role_id" : 1,
+        "created_on" : "2023-08-06T09:45:58.000Z",
+        "updated_on" : "2023-08-06T11:46:03.000Z"
+    },
+    {
+        "email" : "ivan@example.com",
+        "hashed_password" : "$2b$12$SR.8k.tmmPLUUs1IBM0FEeur\/k1ZuR33LzITbWZK4KTKvf924EPIW",
+        "is_active" : true,
+        "is_superuser" : false,
+        "is_verified" : true,
+        "doctor_id" : 1,
+        "role_id" : 2,
+        "created_on" : "2023-08-06T13:30:12.000Z",
+        "updated_on" : "2023-08-06T13:30:12.050Z"
+    },
+    {
+        "email" : "petr@example.com",
+        "hashed_password" : "$2b$12$SR.8k.tmmPLUUs1IBM0FEeur\/k1ZuR33LzITbWZK4KTKvf924EPIW",
+        "is_active" : true,
+        "is_superuser" : false,
+        "is_verified" : true,
+        "doctor_id" : 2,
+        "role_id" : 2,
+        "created_on" : "2023-08-06T13:30:12.000Z",
+        "updated_on" : "2023-08-06T13:30:12.050Z"
+    },
+    {
+        "email" : "visitor@example.com",
+        "hashed_password" : "$2b$12$SR.8k.tmmPLUUs1IBM0FEeur\/k1ZuR33LzITbWZK4KTKvf924EPIW",
+        "is_active" : true,
+        "is_superuser" : false,
+        "is_verified" : false,
+        "doctor_id" : null,
+        "role_id" : 3,
+        "created_on" : "2023-08-06T13:30:12.000Z",
+        "updated_on" : "2023-08-06T13:30:12.050Z"
+    }
+]
