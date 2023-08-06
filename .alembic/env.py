@@ -13,7 +13,7 @@ from src.config import settings
 from src.database import BaseAlchemyModel
 from src.doctor.model import Doctor, doctor_patient
 from src.patient.model import Patient
-from src.user.model import User
+from src.user.model import Role, User
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
